@@ -5,6 +5,7 @@ function Update() {
   const router = useRouter();
   const [formData, setFormData] = useState({
     id:'',
+    category: '',
     name: '',
     description: '',
     quantity: '',
@@ -13,11 +14,12 @@ function Update() {
   });
 
   useEffect(() => {
-    const { id,name, description, quantity, price, photo } = router.query;
+    const { id, category, name, description, quantity, price, photo } = router.query;
 
-    if (name && description && quantity && price && photo) {
+    if (id && category && name && description && quantity && price && photo) {
       setFormData({
         id,
+        category,
         name,
         description,
         quantity,
@@ -32,6 +34,7 @@ function Update() {
 
     const formDataToSend = new FormData();
     formDataToSend.append('id', formData.id);
+    formDataToSend.append('category', formData.category);
     formDataToSend.append('name', formData.name);
     formDataToSend.append('description', formData.description);
     formDataToSend.append('quantity', formData.quantity);
@@ -72,6 +75,17 @@ function Update() {
     });
   };
 
+  useEffect(() => {
+    if (!formData.category) {
+      const defaultCategory = formData.category === '1' ? 'Clothes' : 'Shoes';
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        category: defaultCategory,
+      }));
+    }
+  }, [formData.category]);
+  
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -79,6 +93,13 @@ function Update() {
           <div className="bg-white rounded-md px-6 py-10 max-w-2xl mx-auto">
             <h1 className="text-center text-2xl font-bold text-gray-500 mb-10">Update</h1>
             <div className="space-y-4">
+              <div>
+                <label htmlFor="category" className="text-lx font-serif">Category:</label>
+                <select id="category" name="category" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" onChange={handleInputChange} value={formData.category}>
+                  <option value="Clothes">Clothes</option>
+                  <option value="Shoes">Shoes</option>
+                </select>
+              </div>
               <div>
                 <label htmlFor="name" className="text-lx font-serif">Name:</label>
                 <input type="text" placeholder="name" id="name" name="name" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" onChange={handleInputChange} value={formData.name} />

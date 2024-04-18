@@ -3,8 +3,8 @@ import { useRouter } from 'next/router'
 
 function Login() {
   const route = useRouter();
-  const[mail,setMail]=useState('gashimwea@gmail.com');
-  const[password,setPassword]=useState('Gashimwe');
+  const[mail,setMail]=useState('');
+  const[password,setPassword]=useState('');
 
   const valid = async (e)=>{
   e.preventDefault();

@@ -30,10 +30,10 @@ import Link from 'next/link'
   }, []);
   return (
     <div>
-        <nav id="header" className="w-full z-30 top-0 py-1 fixed bg-white">
+        <nav id="header" className="w-full z-30 top-0 py-1 shadow-lg fixed bg-white">
         <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
-            <label for="menu-toggle" className="cursor-pointer md:hidden block">
+            <label for="menu-toggle" className="cursor-pointer  block">
                 <svg className="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                     <title>menu</title>
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
@@ -41,11 +41,14 @@ import Link from 'next/link'
             </label>
             <input className="hidden" type="checkbox" id="menu-toggle" />
 
-            <div className="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+            <div className="hidden shadow-2xl rounded-md w-1/3  order-1 absolute top-12 bg-white " id="menu">
                 <nav>
-                    <ul className="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-                        <li><a className="inline-block no-underline hover:text-black hover:underline py-2 px-4 cursor-pointer" onClick={() => router.push('Actions')}  >Actions</a></li>
-                        <li><a className="inline-block no-underline hover:text-black hover:underline py-2 px-4 cursor-pointer" onClick={() => router.push('history')}  >View History</a></li>
+                    <ul className=" items-center justify-between text-base text-gray-700 pt-4 ">
+                    <li><a className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 "  onClick={() => router.push('home')}  >Home</a></li>
+                        <li><a className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 "  onClick={() => router.push('Clothers')}  >Clothers</a></li>
+                        <li><a className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 rounded-md" onClick={() => router.push('Shoes')}  >Shoes</a></li>
+                        <li><a className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 "  onClick={() => router.push('Actions')}  >Actions</a></li>
+                        <li><a className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 rounded-md" onClick={() => router.push('history')}  >View History</a></li>
                     </ul>
                 </nav>
             </div>

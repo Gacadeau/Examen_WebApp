@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 function Actions() {
     const [products,setProducts] = useState([]); 
     const [loading, setLoading] = useState(true);
-     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const router = useRouter()
-
+    
     const fetchProducts = async()=>{
         try{
              const response = await fetch('/api/products');
@@ -37,6 +37,7 @@ function Actions() {
             pathname: '/Update',
             query: { 
                 id: product.id,
+                category: product.category_id,
                 name: product.n_product,
                 description: product.description,
                 quantity: product.a_stock,
@@ -61,8 +62,8 @@ function Actions() {
     <div>
     <section className="bg-white py-8">
 
-        <div className="container mx-auto flex items-center flex-wrap pt-4 pb-12">
-            <nav id="store" className="w-full z-30 top-0 px-6 py-1">
+        <div className="container mx-auto flex items-center flex-wrap pt-4 mt-5 pb-12">
+            <nav id="store" className="w-full  top-0 px-6 py-1">
                 <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
                     <a className="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
                     Your stock

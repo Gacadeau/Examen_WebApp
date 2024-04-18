@@ -7,7 +7,7 @@ const upload = multer({ dest: 'uploads/' });
 
 export const config = {
   api: {
-    bodyParser: false, 
+    bodyParser: false,
   },
 };
 
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
         return;
       }
 
-      const { id,name, description, quantity, price } = req.body;
+      const { id, category, name, description, quantity, price } = req.body;
       const photo = req.file;
 
       if (!photo || !photo.originalname || !photo.path) {
@@ -47,11 +47,17 @@ export default async function handler(req, res) {
 
       try {
         const total = quantity * price;
+        let categoryId;
+
+        if (category === 'Clothes') {
+          categoryId = 1;
+        } else if (category === 'Shoes') {
+          categoryId = 2;
+        } 
         const results = await executeQuery(
-            'UPDATE product SET n_product = ?, description = ?, photo = ?, a_stock = ?, unit_price = ?, total = ? WHERE id = ?',
-            [name, description, photoName, quantity, price, total, id]
-          );
-          
+          'UPDATE product SET category_id = ?, n_product = ?, description = ?, photo = ?, a_stock = ?, unit_price = ?, total = ? WHERE id = ?',
+          [categoryId, name, description, photoName, quantity, price, total, id]
+        );
 
         if (results.affectedRows > 0) {
           res.status(200).json({ success: true, message: 'Product updated successfully' });

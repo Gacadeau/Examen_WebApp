@@ -36,7 +36,6 @@ function Facture() {
     fetchCarts();
 }, []);
 
-
 const downloadPageAsPDF = () => {
   const filename = 'facture.pdf';
 
@@ -64,7 +63,6 @@ const downloadPageAsPDF = () => {
     console.error('Error generating PDF:', error);
   });
 };
-
 
   return (
     <div id="page-content" class="bg-gray-200 print:bg-white md:flex lg:flex xl:flex print:flex md:justify-center lg:justify-center xl:justify-center print:justify-center sf">

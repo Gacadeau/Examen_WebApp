@@ -18,7 +18,7 @@ export default async function handler(req, res) {
       return;
     }
 
-    const { name, description, quantity, price } = req.body;
+    const { category, name, description, quantity, price } = req.body;
     const { filename, path: filePath } = req.file;
 
     if (!filename || !filePath) {
@@ -36,11 +36,14 @@ export default async function handler(req, res) {
       res.status(500).json({ success: false, message: 'Error moving photo file' });
       return;
     }
+
     try {
       const total = quantity * price;
+
+      // Insérer le produit avec l'id de la catégorie dans la table product
       const results = await executeQuery(
-        'INSERT INTO product (n_product, description, photo, a_stock, unit_price,total) VALUES (?, ?, ?, ?, ?, ?)',
-        [name, description, photoName, quantity, price, total]
+        'INSERT INTO product (category_id, n_product, description, photo, a_stock, unit_price, total) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        [category, name, description, photoName, quantity, price, total]
       );
 
       if (results.affectedRows > 0) {

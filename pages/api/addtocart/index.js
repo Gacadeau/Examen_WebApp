@@ -1,9 +1,9 @@
 import executeQuery from '../../Config/db1';
 
 export default async function handler(req, res) {
-    const { id_product, n_product, unit_price, photo, total, qte } = req.body;
+    const { category_id,id_product, n_product, unit_price, photo, total, qte } = req.body;
 
-    await executeQuery('INSERT INTO sales (id_product, n_product, photo, unit_price, total, qte) VALUES (?, ?, ?, ?, ?, ?)', [id_product, n_product, photo, unit_price, total, qte]);
+    await executeQuery('INSERT INTO sales (category_id,id_product, n_product, photo, unit_price, total, qte) VALUES (?, ?, ?, ?, ?, ?,?)', [category_id,id_product, n_product, photo, unit_price, total, qte]);
 
     const product = await executeQuery('SELECT unit_price, a_stock FROM product WHERE id = ?', [id_product]);
     if (product.length > 0) {

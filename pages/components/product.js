@@ -43,6 +43,7 @@ const Product = ({ id }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          category_id: product.category_id,
           id_product: product.id,      
           n_product:product.n_product,
           unit_price : product.unit_price,
