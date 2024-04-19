@@ -96,6 +96,7 @@ function Update() {
               <div>
                 <label htmlFor="category" className="text-lx font-serif">Category:</label>
                 <select id="category" name="category" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" onChange={handleInputChange} value={formData.category}>
+                  <option value="">Select categorie</option>
                   <option value="Clothes">Clothes</option>
                   <option value="Shoes">Shoes</option>
                 </select>

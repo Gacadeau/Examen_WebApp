@@ -79,10 +79,10 @@ export default function Sale() {
                     <img className="hover:grow hover:shadow-lg  " src={`/Photos/${product.photo}`} alt={product.n_product} />
                     <div className="pt-3 flex items-center justify-between">
                     <div>
-                        <p className="">{product.n_product}</p>
-                        <div className="pt-1 text-gray-900"> <span>Price unit :</span> {product.unit_price}</div>
+                        <p className="font-bold text-xl">{product.n_product}</p>
+                        <div className="pt-1 text-gray-900"> <span>Price unit :</span> {product.unit_price} Fbu</div>
                         <div className="pt-1 text-gray-900"> <span>Qty :</span> {product.a_stock} </div>
-                        <div className="pt-1 text-gray-900"> <span>Total :</span> {product.total} </div>
+                        <div className="pt-1 text-gray-900"> <span>Total :</span> {product.total} Fbu</div>
                     </div> 
                         
                     </div>

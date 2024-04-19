@@ -3,6 +3,18 @@ import { useRouter } from 'next/router';
 
 function AddStock() {
   const route = useRouter();
+  const validate = () => {
+    toast.success('added successfully', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  }
   const [formData, setFormData] = useState({
     category: null, // Ajout de la catégorie dans le state initial
     name: '',
@@ -33,9 +45,18 @@ function AddStock() {
       if (!response.ok) {
         throw new Error('Failed to add product');
       } else {
-        route.push('home');
+        route.push('/home')
+        validate();
         const data = await response.json();
-        console.log('Product added successfully:', data);
+        setFormData({
+          category: null, // Ajout de la catégorie dans le state initial
+          name: '',
+          description: '',
+          quantity: '',
+          price: '',
+          size: '',
+          photo: null,
+        })
       }
     } catch (error) {
       console.error('Error adding product:', error);
@@ -77,7 +98,7 @@ function AddStock() {
               <div>
                 <label htmlFor="category" className="text-lx font-serif">Category:</label>
                 <select id="category" name="category" className="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" onChange={handleInputChange} >
-                  <option value="Select Category">Select category</option> 
+                  <option value="">Select category</option>
                   <option value="Clothes">Clothes</option>
                   <option value="Shoes">Shoes</option>
                 </select>

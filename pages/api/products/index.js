@@ -2,7 +2,7 @@ import executeQuery from '../../Config/db1';
 
 export default async function handler(req, res) {
   try {
-    const products = await executeQuery('SELECT * FROM product');
+    const products = await executeQuery('SELECT * FROM product ORDER BY RAND()');
     if(products){
         res.status(200).json(products);
     }

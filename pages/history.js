@@ -107,7 +107,7 @@ function History() {
                             <div className="mt-1 flex items-center justify-center text-navy-700 dark:text-white">
                                 <div className="ml-1 flex items-center text-sm font-bold text-yellow-700">
                                     <p>   </p>
-                                    <span className="">Total </span> <p className="ml-1">{cat.total}$</p>
+                                    <span className="">Total </span> <p className="ml-1">{cat.total}Fbu</p>
                                 </div>
                                 <div className="ml-2 flex items-center text-sm font-normal text-gray-600 dark:text-white">
                                     <p>{`${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`}</p>

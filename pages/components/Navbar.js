@@ -44,11 +44,11 @@ import Link from 'next/link'
             <div className="hidden shadow-2xl rounded-md w-1/3  order-1 absolute top-12 bg-white " id="menu">
                 <nav>
                     <ul className=" items-center justify-between text-base text-gray-700 pt-4 ">
-                    <li><a className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 "  onClick={() => router.push('home')}  >Home</a></li>
-                        <li><a className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 "  onClick={() => router.push('Clothers')}  >Clothers</a></li>
-                        <li><a className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 rounded-md" onClick={() => router.push('Shoes')}  >Shoes</a></li>
-                        <li><a className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 "  onClick={() => router.push('Actions')}  >Actions</a></li>
-                        <li><a className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 rounded-md" onClick={() => router.push('history')}  >View History</a></li>
+                    <li><label for="menu-toggle" className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 " onClick={() => router.push('home')}  >Home</label></li>
+                        <li><label for="menu-toggle" className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 "  onClick={() => router.push('Clothers')}  >Clothers</label></li>
+                        <li><label for="menu-toggle" className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 rounded-md" onClick={() => router.push('Shoes')}  >Shoes</label></li>
+                        <li><label for="menu-toggle" className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 "  onClick={() => router.push('Actions')}  >Actions</label></li>
+                        <li><label for="menu-toggle"a className="inline-block no-underline hover:text-black w-full py-2 px-4 cursor-pointer hover:bg-gray-200 rounded-md" onClick={() => router.push('history')}  >View History</label></li>
                     </ul>
                 </nav>
             </div>
@@ -61,9 +61,16 @@ import Link from 'next/link'
                     BraveShop
                 </div>
             </div>
-
+            
             <div className="order-2 md:order-3 flex items-center" id="nav-content">
-                <button onClick={addInStock} className="  relative hover:grow no-underline hover:bg-yellow-700 flex bg-yellow-500 p-2 rounded-md text-white ml-2 " href="./components/cart">
+            <button className="inline-block no-underline hover:text-black" title='logout' onClick={()=>router.push('/')}>
+                    <svg className="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" 
+                       width="24" height="24" viewBox="0 0 24 24">
+                        <circle fill="none" cx="12" cy="7" r="3" />
+                        <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />
+                    </svg>
+                </button>
+                <button onClick={addInStock} className="  relative hover:grow no-underline hover:bg-yellow-700 flex bg-yellow-500 p-2 rounded-md text-white ml-4 " href="./components/cart">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                       </svg>

@@ -1,14 +1,16 @@
 import { createPool } from 'mysql2/promise';
 
+// Créez un pool de connexions avec une limite de connexions maximale
 const pool = createPool({
-  host: 'sql302.infinityfree.com',
-  user: 'if0_35421688',
-  password: 'VrIgqHhW3lbJDb0',
-  database: 'if0_35421688_stock',
-  port:'3306',
-  connectionLimit: 50, 
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'ecommerce',
+  connectionLimit: 50, // Nombre maximal de connexions
 });
 
+
+// Vérifiez si la connexion est ouverte avant d'exécuter une requête
 const executeQuery = async (query, params) => {
   let connection;
   try {
@@ -20,7 +22,7 @@ const executeQuery = async (query, params) => {
     
   } finally {
     if (connection) {
-      connection.release();
+      connection.release(); // Libérer la connexion après l'exécution de la requête
     }
   }
 };
